@@ -1,0 +1,12 @@
+Type 1:
+Health = 15
+Speed = 0.05F
+Damage = 10
+
+Type 2:
+30, 0.07F, 20
+
+Type 3:
+45, 0.03F, 30
+
+MoveSpeed = 0.04F + (0.01F * Type * -1^Type)
