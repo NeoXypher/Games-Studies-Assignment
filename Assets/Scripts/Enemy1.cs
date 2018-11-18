@@ -24,12 +24,12 @@ public class Enemy1 : MonoBehaviour {
     void FixedUpdate()
     {
 
-		if (gameObject.transform.position.y <= -4)
+		/*if (gameObject.transform.position.y <= -4)
 			thisEnemyDirection = 1F;
 		else if (gameObject.transform.position.y >= 4)
-			thisEnemyDirection = -1F;
+			thisEnemyDirection = -1F;*/
 
-		Vector3 Movement = new Vector3(0, thisEnemyDirection * thisEnemyMoveSpeed, 0);
+		Vector3 Movement = new Vector3(-(thisEnemyDirection * thisEnemyMoveSpeed), 0 , 0);
 		gameObject.transform.Translate(Movement, Space.World);
 
 		if (Player.transform.position.y + 1F >= gameObject.transform.position.y && Player.transform.position.y - 1F <= gameObject.transform.position.y)
@@ -93,8 +93,14 @@ public class Enemy1 : MonoBehaviour {
             {
                 Destroy(gameObject);
                 gameManager.GetComponent<GameManager>().CheckLevel();
-                DropPickUp();
+                //DropPickUp();
             }
+        }
+        if (collision.gameObject.tag == "GameController")
+        {
+            gameManager.GetComponent<GameManager>().Remainder = 1;
+            Destroy(gameObject);
+            gameManager.GetComponent<GameManager>().CheckLevel();
         }
     }
 

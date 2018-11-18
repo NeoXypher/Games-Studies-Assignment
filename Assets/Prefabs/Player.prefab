@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1185217317567810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalPosition: {x: -7, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -110,6 +110,7 @@ MonoBehaviour:
   Bullet: {fileID: 1984909059390232, guid: d3c5e870c4e51054a912a8abd4d466f3, type: 2}
   gameManager: {fileID: 0}
   GameController: {fileID: 0}
+  MainCamera: {fileID: 0}
 --- !u!212 &212949669931429114
 SpriteRenderer:
   m_ObjectHideFlags: 1

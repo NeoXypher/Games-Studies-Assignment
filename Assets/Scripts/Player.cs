@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
-    public int PlayerHealth = 100, PlayerLives = 3, FireRate = 10, Count = 0, DamageTaken = 25, Score = 0, Damage = 5;
+    public int PlayerHealth = 100, PlayerLives = 3, FireRate = 10, Count = 9, DamageTaken = 25, Score = 0, Damage = 5;
 	public float Speed = 1F;
     public GameObject Bullet;
     public GameManager gameManager;
-	public GameObject GameController;
+    public GameObject GameController;//, MainCamera;
 	
 
     void Start ()
@@ -29,10 +29,13 @@ public class Player : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		
+        /*Camera mainCamera = MainCamera.GetComponent<Camera>();
+        Vector3 UpperCameraPosition = mainCamera.ViewportToWorldPoint(new Vector3(0, 1, 0));
+        if (gameObject.transform.position.y == UpperCameraPosition.y)
+            Debug.Log("Registered");*/
 		float mV = Input.GetAxis("Vertical");
 		float mH = Input.GetAxis("Horizontal");
-		Vector2 m = new Vector2(0, mV * 0.1F * Speed);
+		Vector2 m = new Vector2(0, Mathf.Clamp(mV * 0.1F * Speed, -4.5f, 4.5f));
 		Vector2 m2 = new Vector2(mH * 0.075F * Speed, 0);
 		transform.Translate(m, Space.World);
 		transform.Translate(m2, Space.World);
@@ -52,7 +55,7 @@ public class Player : MonoBehaviour {
             }
         }
         else
-            Count = 0;
+            Count = 9;
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
